@@ -2,6 +2,7 @@ package tn.esprit.devops_project;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 public class DevOps_ProjectSpringBootApplication {
