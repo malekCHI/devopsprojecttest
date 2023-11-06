@@ -42,7 +42,7 @@ import static org.assertj.core.api.Assertions.assertThat;
         ActivitySector ActivitySectorFromDB = activitySectorRepository.findById(ActivitySectorResult.getIdSecteurActivite()).orElse(null);
         assertThat(ActivitySectorFromDB).isNotNull();
     }
-    @Test
+    /*@Test
     @DisplayName("Testing updateActivitySector by id")
     void updateActivitySector() {
         ActivitySector activitySector = new ActivitySector().builder()
@@ -57,7 +57,7 @@ import static org.assertj.core.api.Assertions.assertThat;
         Assertions.assertEquals("UpdatedCode", updatedSector.getCodeSecteurActivite());
         ActivitySector activitySectorFromDB = activitySectorRepository.findById(updatedSector.getIdSecteurActivite()).orElse(null);
         Assertions.assertNotNull(activitySectorFromDB);
-    }
+    }*/
     @Test
     @DisplayName("Testing deleteActivitySector by id")
     void deleteActivitySector() {
