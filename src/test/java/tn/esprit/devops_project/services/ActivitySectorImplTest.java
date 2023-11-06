@@ -46,7 +46,7 @@ import static org.assertj.core.api.Assertions.assertThat;
     @Test
     @DisplayName("Testing updateActivitySector by id")
     void updateActivitySector() {
-        ActivitySector existingSector = activitySectorimpl.retrieveActivitySector(11L);
+        ActivitySector existingSector = activitySectorimpl.retrieveActivitySector(111L);
         Assertions.assertNotNull(existingSector);
         existingSector.setCodeSecteurActivite("UpdatedCode");
         existingSector.setLibelleSecteurActivite("UpdatedLabel");
@@ -60,19 +60,19 @@ import static org.assertj.core.api.Assertions.assertThat;
     @Test
     @DisplayName("Testing deleteActivitySector by id")
     void deleteActivitySector() {
-        Long idSecteurActivite = 13L;
+        Long idSecteurActivite = 333L;
         ActivitySector activitySector = activitySectorRepository.findById(idSecteurActivite).orElse(null);
-        Assertions.assertNotNull(activitySector, "L'opérateur avec id 13 existe dans la bd");
+        Assertions.assertNotNull(activitySector, "L'opérateur avec id 333 existe dans la bd");
         activitySectorimpl.deleteActivitySector(idSecteurActivite);
         ActivitySector SecteurActivite = activitySectorRepository.findById(idSecteurActivite).orElse(null);
-        Assertions.assertNull(SecteurActivite, "L'opérateur avec id 13 a été supprimé de la bd");
+        Assertions.assertNull(SecteurActivite, "L'opérateur avec id 333 a été supprimé de la bd");
     }
 
 
     @Test
     @DisplayName("Testing retrieve by id ActivitySector")
     void retrieveActivitySector() {
-        Long idToRetrieve = 12L;
+        Long idToRetrieve = 222L;
         ActivitySector retrievedActivitySector = activitySectorRepository.findById(idToRetrieve).orElse(null);
         Assertions.assertNotNull(retrievedActivitySector);
         Assertions.assertEquals(idToRetrieve, retrievedActivitySector.getIdSecteurActivite());
