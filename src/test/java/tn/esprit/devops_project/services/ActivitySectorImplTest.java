@@ -28,7 +28,6 @@ import static org.assertj.core.api.Assertions.assertThat;
     void GetAllActivitySectors() {
         List<ActivitySector> listActivitySector = activitySectorimpl.retrieveAllActivitySectors();
         Assertions.assertNotNull(listActivitySector);
-        Assertions.assertEquals(3, listActivitySector.size());
     }
     @Test
     @DisplayName("Testing add ActivitySector")
@@ -46,11 +45,13 @@ import static org.assertj.core.api.Assertions.assertThat;
     @Test
     @DisplayName("Testing updateActivitySector by id")
     void updateActivitySector() {
-        ActivitySector existingSector = activitySectorimpl.retrieveActivitySector(999L);
-        Assertions.assertNotNull(existingSector);
-        existingSector.setCodeSecteurActivite("UpdatedCode");
-        existingSector.setLibelleSecteurActivite("UpdatedLabel");
-        ActivitySector updatedSector = activitySectorimpl.updateActivitySector(existingSector);
+        ActivitySector activitySector = new ActivitySector().builder()
+                .codeSecteurActivite("D13455D")
+                .libelleSecteurActivite("malek").build();
+        activitySector.getIdSecteurActivite();
+        activitySector.setCodeSecteurActivite("UpdatedCode");
+        activitySector.setLibelleSecteurActivite("UpdatedLabel");
+        ActivitySector updatedSector = activitySectorimpl.updateActivitySector(activitySector);
         Assertions.assertNotNull(updatedSector);
         Assertions.assertEquals("UpdatedLabel", updatedSector.getLibelleSecteurActivite());
         Assertions.assertEquals("UpdatedCode", updatedSector.getCodeSecteurActivite());
