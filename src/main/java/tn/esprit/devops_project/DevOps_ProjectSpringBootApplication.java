@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+@ComponentScan(basePackages = "tn.esprit")
 public class DevOps_ProjectSpringBootApplication {
 
     public static void main(String[] args) {
