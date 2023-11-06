@@ -46,24 +46,16 @@ import static org.assertj.core.api.Assertions.assertThat;
     @Test
     @DisplayName("Testing updateActivitySector by id")
     void updateActivitySector() {
-        Long idToUpdate = 999L; // Specify the ID you want to update
-        ActivitySector existingSector = activitySectorimpl.retrieveActivitySector(idToUpdate);
-
-        if (existingSector != null) {
-            // Record with the specified ID exists, perform the update
-            existingSector.setCodeSecteurActivite("UpdatedCode");
-            existingSector.setLibelleSecteurActivite("UpdatedLabel");
-            ActivitySector updatedSector = activitySectorimpl.updateActivitySector(existingSector);
-            Assertions.assertNotNull(updatedSector);
-            Assertions.assertEquals("UpdatedLabel", updatedSector.getLibelleSecteurActivite());
-            Assertions.assertEquals("UpdatedCode", updatedSector.getCodeSecteurActivite());
-            ActivitySector activitySectorFromDB = activitySectorRepository.findById(updatedSector.getIdSecteurActivite()).orElse(null);
-            Assertions.assertNotNull(activitySectorFromDB);
-        } else {
-            // Record with the specified ID does not exist, handle it appropriately
-            // For example, you might choose to skip the operation or log a message
-            System.out.println("Record with ID " + idToUpdate + " does not exist.");
-        }
+        ActivitySector existingSector = activitySectorimpl.retrieveActivitySector(999L);
+        Assertions.assertNotNull(existingSector);
+        existingSector.setCodeSecteurActivite("UpdatedCode");
+        existingSector.setLibelleSecteurActivite("UpdatedLabel");
+        ActivitySector updatedSector = activitySectorimpl.updateActivitySector(existingSector);
+        Assertions.assertNotNull(updatedSector);
+        Assertions.assertEquals("UpdatedLabel", updatedSector.getLibelleSecteurActivite());
+        Assertions.assertEquals("UpdatedCode", updatedSector.getCodeSecteurActivite());
+        ActivitySector activitySectorFromDB = activitySectorRepository.findById(updatedSector.getIdSecteurActivite()).orElse(null);
+        Assertions.assertNotNull(activitySectorFromDB);
     }
     @Test
     @DisplayName("Testing deleteActivitySector by id")
