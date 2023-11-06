@@ -1,5 +1,4 @@
 package tn.esprit.devops_project.services;
-
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -7,13 +6,10 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
-import tn.esprit.devops_project.DevOps_ProjectSpringBootApplication;
 import tn.esprit.devops_project.entities.ActivitySector;
 import tn.esprit.devops_project.repositories.ActivitySectorRepository;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -26,9 +22,7 @@ class activitySectorImplTestMockito {
     @Mock
     //Create a mock
     private ActivitySectorRepository activitySectorRepository;
-    //IActivitySector iActivitySector = Mockito.mock(IActivitySector.class);
     @InjectMocks
-    //Inject the mocks as dependencies into ActivitySectorImpl
     private ActivitySectorImpl activitySectorimpl;
     private AutoCloseable closeable;
 
