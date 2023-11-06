@@ -28,6 +28,7 @@ import static org.assertj.core.api.Assertions.assertThat;
     void GetAllActivitySectors() {
         List<ActivitySector> listActivitySector = activitySectorimpl.retrieveAllActivitySectors();
         Assertions.assertNotNull(listActivitySector);
+        Assertions.assertEquals(3, listActivitySector.size());
     }
     @Test
     @DisplayName("Testing add ActivitySector")
@@ -42,22 +43,20 @@ import static org.assertj.core.api.Assertions.assertThat;
         ActivitySector ActivitySectorFromDB = activitySectorRepository.findById(ActivitySectorResult.getIdSecteurActivite()).orElse(null);
         assertThat(ActivitySectorFromDB).isNotNull();
     }
-    /*@Test
+    @Test
     @DisplayName("Testing updateActivitySector by id")
     void updateActivitySector() {
-        ActivitySector activitySector = new ActivitySector().builder()
-                .codeSecteurActivite("D13455D")
-                .libelleSecteurActivite("malek").build();
-        activitySector.getIdSecteurActivite();
-        activitySector.setCodeSecteurActivite("UpdatedCode");
-        activitySector.setLibelleSecteurActivite("UpdatedLabel");
-        ActivitySector updatedSector = activitySectorimpl.updateActivitySector(activitySector);
+        ActivitySector existingSector = activitySectorimpl.retrieveActivitySector(555L);
+        Assertions.assertNotNull(existingSector);
+        existingSector.setCodeSecteurActivite("UpdatedCode");
+        existingSector.setLibelleSecteurActivite("UpdatedLabel");
+        ActivitySector updatedSector = activitySectorimpl.updateActivitySector(existingSector);
         Assertions.assertNotNull(updatedSector);
         Assertions.assertEquals("UpdatedLabel", updatedSector.getLibelleSecteurActivite());
         Assertions.assertEquals("UpdatedCode", updatedSector.getCodeSecteurActivite());
         ActivitySector activitySectorFromDB = activitySectorRepository.findById(updatedSector.getIdSecteurActivite()).orElse(null);
         Assertions.assertNotNull(activitySectorFromDB);
-    }*/
+    }
     @Test
     @DisplayName("Testing deleteActivitySector by id")
     void deleteActivitySector() {
