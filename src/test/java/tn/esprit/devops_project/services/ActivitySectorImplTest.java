@@ -46,7 +46,7 @@ import static org.assertj.core.api.Assertions.assertThat;
     @Test
     @DisplayName("Testing updateActivitySector by id")
     void updateActivitySector() {
-        ActivitySector existingSector = activitySectorimpl.retrieveActivitySector(111L);
+        ActivitySector existingSector = activitySectorimpl.retrieveActivitySector(999L);
         Assertions.assertNotNull(existingSector);
         existingSector.setCodeSecteurActivite("UpdatedCode");
         existingSector.setLibelleSecteurActivite("UpdatedLabel");
