@@ -17,7 +17,7 @@ import java.util.Optional;
 @SpringBootTest()
 @ExtendWith(MockitoExtension.class)
 @ActiveProfiles("test")
-class activitySectorImplTestMockito {
+class activitySectorImplMockitoTest {
 
     @Mock
     //Create a mock
