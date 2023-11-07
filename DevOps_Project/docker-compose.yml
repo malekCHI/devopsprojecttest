@@ -10,7 +10,7 @@ services:
     depends_on:
       - postgres
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5434/devopsbase
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/devopsbase
       - SPRING_PROFILES_ACTIVE=prod
 
   postgres:
