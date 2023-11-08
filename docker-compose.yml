@@ -12,6 +12,9 @@ services:
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/devopsbase
       - SPRING_PROFILES_ACTIVE=prod
+    networks:
+      - mynetwork
+      - devopsproject_default
 
   devops_project_front:
     image: devops_project_front
@@ -27,6 +30,7 @@ services:
     image: postgres:latest
     networks:
       - mynetwork
+      - devopsproject_default
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: imenadel
@@ -38,6 +42,8 @@ services:
 
 networks:
   mynetwork:
+    driver: bridge
+  devopsproject_default:
     driver: bridge
 
 volumes:
