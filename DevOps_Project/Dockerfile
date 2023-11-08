@@ -1,4 +1,4 @@
-FROM openjdk:8
+FROM openjdk:11
 EXPOSE 8700
-ADD target/DevOps_Project-0.0.1.jar DevOps_Project.jar
+ADD target/DevOps_Project-2.1.jar DevOps_Project.jar
 ENTRYPOINT ["java","-jar","DevOps_Project.jar"]
